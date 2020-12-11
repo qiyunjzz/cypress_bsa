@@ -881,7 +881,7 @@ int app_disc_start_regular(tBSA_DISC_CBACK *p_custom_disc_cback)
     disc_start_param.duration = 4;
     disc_start_param.mode = BSA_DM_GENERAL_INQUIRY;
 #if (defined(BLE_INCLUDED) && BLE_INCLUDED == TRUE)
-    disc_start_param.mode |= BSA_BLE_GENERAL_INQUIRY;
+    disc_start_param.mode |= BSA_BLE_GENERAL_INQUIRY |BSA_BLE_LIMITED_INQUIRY;
 #endif
 
     /* Save the provided custom callback */
