@@ -728,38 +728,38 @@ void app_generic_disc_cback(tBSA_DISC_EVT event, tBSA_DISC_MSG *p_data)
     /* a New Device has been discovered */
     case BSA_DISC_NEW_EVT:
         /* check if this device has already been received (update) */
-        for (index = 0; index < APP_DISC_NB_DEVICES; index++)
-        {
-            if ((app_discovery_cb.devs[index].in_use == TRUE) &&
-                (!bdcmp(app_discovery_cb.devs[index].device.bd_addr, p_data->disc_new.bd_addr)))
-            {
-                /* Update device */
-                APP_INFO1("Update device:%d", index);
-                app_discovery_cb.devs[index].device = p_data->disc_new;
-                break;
-            }
-        }
-        /* If this is a new device */
-        if (index >= APP_DISC_NB_DEVICES)
-        {
-            /* Look for a free place to store dev info */
-            for (index = 0; index < APP_DISC_NB_DEVICES; index++)
-            {
-                if (app_discovery_cb.devs[index].in_use == FALSE)
-                {
-                    APP_INFO1("New Discovered device:%d", index);
-                    app_discovery_cb.devs[index].in_use = TRUE;
-                    memcpy(&app_discovery_cb.devs[index].device, &p_data->disc_new,
-                            sizeof(tBSA_DISC_REMOTE_DEV));
-                    break;
-                }
-            }
-        }
-        /* If this is a new device */
-        if (index >= APP_DISC_NB_DEVICES)
-        {
-            APP_INFO0("No room to save new discovered");
-        }
+        // for (index = 0; index < APP_DISC_NB_DEVICES; index++)
+        // {
+        //     if ((app_discovery_cb.devs[index].in_use == TRUE) &&
+        //         (!bdcmp(app_discovery_cb.devs[index].device.bd_addr, p_data->disc_new.bd_addr)))
+        //     {
+        //         /* Update device */
+        //         APP_INFO1("Update device:%d", index);
+        //         app_discovery_cb.devs[index].device = p_data->disc_new;
+        //         break;
+        //     }
+        // }
+        // /* If this is a new device */
+        // if (index >= APP_DISC_NB_DEVICES)
+        // {
+        //     /* Look for a free place to store dev info */
+        //     for (index = 0; index < APP_DISC_NB_DEVICES; index++)
+        //     {
+        //         if (app_discovery_cb.devs[index].in_use == FALSE)
+        //         {
+        //             APP_INFO1("New Discovered device:%d", index);
+        //             app_discovery_cb.devs[index].in_use = TRUE;
+        //             memcpy(&app_discovery_cb.devs[index].device, &p_data->disc_new,
+        //                     sizeof(tBSA_DISC_REMOTE_DEV));
+        //             break;
+        //         }
+        //     }
+        // }
+        // /* If this is a new device */
+        // if (index >= APP_DISC_NB_DEVICES)
+        // {
+        //     APP_INFO0("No room to save new discovered");
+        // }
 
         APP_INFO1("\tBdaddr:%02x:%02x:%02x:%02x:%02x:%02x",
                 p_data->disc_new.bd_addr[0],
