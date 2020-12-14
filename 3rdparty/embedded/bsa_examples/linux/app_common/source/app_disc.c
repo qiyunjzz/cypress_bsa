@@ -878,7 +878,7 @@ int app_disc_start_regular(tBSA_DISC_CBACK *p_custom_disc_cback)
 
     disc_start_param.cback = app_generic_disc_cback;
     disc_start_param.nb_devices = app_disc_cb.nb_devices;
-    disc_start_param.duration = 30;
+    disc_start_param.duration = 4;
     disc_start_param.mode = BSA_DM_GENERAL_INQUIRY;
 #if (defined(BLE_INCLUDED) && BLE_INCLUDED == TRUE)
     disc_start_param.mode |= BSA_BLE_GENERAL_INQUIRY |BSA_BLE_LIMITED_INQUIRY;
@@ -920,8 +920,8 @@ int app_disc_start_ble_regular(tBSA_DISC_CBACK *p_custom_disc_cback)
 
     disc_start_param.cback = app_generic_disc_cback;
     disc_start_param.nb_devices = app_disc_cb.nb_devices;
-    disc_start_param.duration = 30;
-    disc_start_param.mode = BSA_BLE_GENERAL_INQUIRY;
+    disc_start_param.duration = 4;
+    disc_start_param.mode = BSA_BLE_GENERAL_INQUIRY |BSA_BLE_LIMITED_INQUIRY;
 
     /* Save the provided custom callback */
     app_disc_cb.p_disc_cback = p_custom_disc_cback;
