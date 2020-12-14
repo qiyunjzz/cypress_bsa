@@ -215,7 +215,7 @@ void app_ble_menu(void)
         app_ble_display_menu();
 
         choice = app_get_choice("Select action");
-
+        APP_ERROR1(" choice:%d", choice);
         switch(choice)
         {
         case APP_BLE_MENU_ABORT_DISC:

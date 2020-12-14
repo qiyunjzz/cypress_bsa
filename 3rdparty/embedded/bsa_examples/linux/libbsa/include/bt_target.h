@@ -1177,7 +1177,7 @@ and USER_HW_DISABLE_API macros */
 ******************************************************************************/
 
 #ifndef BLE_INCLUDED
-#define BLE_INCLUDED            FALSE
+#define BLE_INCLUDED           TRUE 
 #endif
 
 #ifndef BLE_LLT_INCLUDED
